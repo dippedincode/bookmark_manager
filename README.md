@@ -78,3 +78,15 @@ rspec
 ```
 rubocop
 ```
+
+### To set up the test database
+
+Connect to `psql` and create the `bookmark_manager_test` database:
+
+```
+CREATE DATABASE bookmark_manager_test;
+```
+
+To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order, further to which:
+- Connect to the database using the pqsl command \c bookmark_manager;
+- Run the queries you see in the file `01_create_bookmarks_table.sql` - stop after the 3rd INSERT 
