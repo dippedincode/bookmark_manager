@@ -11,7 +11,8 @@ Bookmark manager has this list of specifications.
   - Filter bookmarks by tag
   - Users manage their bookmarks
 
-Here is the first user story and diagram.
+User Story 1
+------------
 ```
 As a time-pressed user
 So that I can quickly go to web sites I regularly visit
@@ -89,4 +90,44 @@ CREATE DATABASE bookmark_manager_test;
 
 To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order, further to which:
 - Connect to the database using the pqsl command \c bookmark_manager;
-- Run the queries you see in the file `01_create_bookmarks_table.sql` - stop after the 3rd INSERT 
+- Run the queries you see in the file `01_create_bookmarks_table.sql` - stop after the 3rd INSERT
+
+User Story 2
+------------
+```
+As a normal user
+So that I can keep a URL for future use 
+I would like to add a bookmark for it in the list
+```
+```
+     ┌──────┐          ┌──────────┐          ┌─────┐          ┌────────┐          ┌────┐
+     │Client│          │Controller│          │Model│          │Database│          │View│
+     └──┬───┘          └────┬─────┘          └──┬──┘          └───┬────┘          └─┬──┘
+        │    post-request   │                   │                 │                 │   
+        │ ──────────────────>                   │                 │                 │   
+        │                   │                   │                 │                 │   
+        │                   │       .add        │                 │                 │   
+        │                   │ ─────────────────>│                 │                 │   
+        │                   │                   │                 │                 │   
+        │                   │                   │     query       │                 │   
+        │                   │                   │────────────────>│                 │   
+        │                   │                   │                 │                 │   
+        │                   │                   │ result-object   │                 │   
+        │                   │                   │<─ ─ ─ ─ ─ ─ ─ ─ │                 │   
+        │                   │                   │                 │                 │   
+        │                   │    [bookmarks]    │                 │                 │   
+        │                   │ <─ ─ ─ ─ ─ ─ ─ ─ ─│                 │                 │   
+        │                   │                   │                 │                 │   
+        │                   │                   │  [bookmarks]    │                 │   
+        │                   │ ──────────────────────────────────────────────────────>   
+        │                   │                   │                 │                 │   
+        │                   │                   │      html       │                 │   
+        │                   │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    
+        │                   │                   │                 │                 │   
+        │      response     │                   │                 │                 │   
+        │ <─ ─ ─ ─ ─ ─ ─ ─ ─                    │                 │                 │   
+     ┌──┴───┐          ┌────┴─────┐          ┌──┴──┐          ┌───┴────┐          ┌─┴──┐
+     │Client│          │Controller│          │Model│          │Database│          │View│
+     └──────┘          └──────────┘          └─────┘          └────────┘          └────┘
+```
+
