@@ -67,9 +67,8 @@ To set up the appropriate tables, connect to the database in `psql` and run the 
 ```
 rackup -p 3000
 ```
-
-To view bookmarks, navigate to `localhost:3000/bookmarks`
-To view bookmarks, navigate to `localhost:3000/bookmarks`.
+This command runs the program and sets the output to port number 3000.  
+To view it, open a browser and navigate to `localhost:3000/bookmarks`.
 
 ### To run tests:
 ```
