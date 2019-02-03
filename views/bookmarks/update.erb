@@ -1,0 +1,9 @@
+<h2>Update that bookmark</h2>
+<form action="/bookmarks/<%= @bookmark.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH" />
+
+  Change the Title: <input type="text" name="title" value="<%= @bookmark.title %>" /><br><br>
+  Change the URL: <input type="text" name="url" value="<%= @bookmark.url %>"/><br><br>
+
+  <input type="submit" value="Submit" />
+</form>

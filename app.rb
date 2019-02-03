@@ -3,7 +3,6 @@ require_relative 'lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions, :method_override
-  set :session_secret, 'super secret'
 
   get '/' do
     erb :index
@@ -15,7 +14,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks/add' do
-    # @url_add = params[:url_add]
     erb :'bookmarks/add'
   end
 
@@ -28,6 +26,16 @@ class BookmarkManager < Sinatra::Base
     Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end 
+
+  get '/bookmarks/:id/update' do
+    @bookmark = Bookmark.find(id: params[:id])
+    erb :"bookmarks/update"
+  end
+
+  patch '/bookmarks/:id' do
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url])
+    redirect('/bookmarks')
+  end
 
   run! if app_file == $0
 

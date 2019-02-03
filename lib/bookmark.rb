@@ -31,4 +31,19 @@ class Bookmark
     conn = PG.connect( dbname: @db_name )
     conn.exec("DELETE FROM bookmarks WHERE id = #{id}")
   end
+
+  def self.update(id:, title:, url:)
+    @db_name = (ENV['ENVIRONMENT'] == 'test') ? 'bookmark_manager_test' : 'bookmark_manager'
+    conn = PG.connect( dbname: @db_name )
+    result = conn.exec("UPDATE bookmarks SET title = '#{title}', url = '#{url}' WHERE id = #{id} RETURNING id, title, url;")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
+
+  def self.find(id:)
+    @db_name = (ENV['ENVIRONMENT'] == 'test') ? 'bookmark_manager_test' : 'bookmark_manager'
+    conn = PG.connect( dbname: @db_name )
+    result = conn.exec("SELECT * FROM bookmarks WHERE id = #{id};")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
+
 end
