@@ -1,6 +1,6 @@
 Bookmark manager app
 ====================
-Bookmark manager has this list of specifications.
+Week 4's challenge is to build a web app that stores web bookmarks in a database. This is the list of specifications.
 
   - Show a list of bookmarks
   - Add new bookmarks
@@ -10,6 +10,8 @@ Bookmark manager has this list of specifications.
   - Tag bookmarks into categories
   - Filter bookmarks by tag
   - Users manage their bookmarks
+
+  Full details at https://github.com/makersacademy/course/blob/master/bookmark_manager/00_challenge_map.md#challenges
 
 User Story 1
 ------------
@@ -129,4 +131,11 @@ I would like to add a bookmark for it in the list
      │Client│          │Controller│          │Model│          │Database│          │View│
      └──────┘          └──────────┘          └─────┘          └────────┘          └────┘
 ```
-
+User Story 3
+------------
+```
+As a tidy user
+So that I can keep my bookmarks neat and tidy 
+I would like to delete a bookmark if I no longer need it
+```
+The sequence diagram will be the same as for User Story 2 as we will do a post request to change the bookmarks table in the database.

@@ -1,0 +1,1 @@
+DELETE FROM bookmarks WHERE id = #{id}   // #{id} = id of the bookmark in the bookmarks table

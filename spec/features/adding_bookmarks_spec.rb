@@ -16,16 +16,18 @@ feature 'Adding bookmarks' do
     fill_in 'title', with: 'LinkedIn'
     click_button('Submit')
 
-    # visit('/bookmarks/add')
-    # fill_in 'url_add', with: 'http://www.vodafone.com'
-    # click_button('Submit')
+    visit('/bookmarks/add')
+    fill_in 'url', with: 'http://www.vodafone.com'
+    fill_in 'title', with: 'Vodafone'
+    click_button('Submit')
 
-    # visit('/bookmarks/add')
-    # fill_in 'url_add', with: 'http://www.reddit.com'
-    # click_button('Submit')
+    visit('/bookmarks/add')
+    fill_in 'url', with: 'http://www.reddit.com'
+    fill_in 'title', with: 'Reddit'
+    click_button('Submit')
 
     expect(page).to have_link('LinkedIn', href: 'http://www.linkedin.com')
-    # expect(page).to have_content "http://www.vodafone.com"
-    # expect(page).to have_content "http://www.reddit.com"
+    expect(page).to have_link('Vodafone', href: 'http://www.vodafone.com')
+    expect(page).to have_link('Reddit', href: 'http://www.reddit.com')
   end
 end
