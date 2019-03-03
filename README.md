@@ -20,31 +20,7 @@ As a time-pressed user
 So that I can quickly go to web sites I regularly visit
 I would like to see a list of bookmarks
 ```
-```
-  ┌──────┐          ┌──────────┐          ┌─────┐          ┌────┐
-  │Client│          │Controller│          │Model│          │View│
-  └──┬───┘          └────┬─────┘          └──┬──┘          └─┬──┘
-     │    get-request    │                   │               │
-     │───────────────────>                   │               │
-     │                   │                   │               │
-     │                   │       .all        │               │
-     │                   │──────────────────>│               │
-     │                   │                   │               │
-     │                   │    [bookmarks]    │               │
-     │                   │<- - - - - - - - - │               │
-     │                   │                   │               │
-     │                   │            [bookmarks]            │
-     │                   │───────────────────────────────────>
-     │                   │                   │               │
-     │                   │                html               │
-     │                   │<- - - - - - - - - - - - - - - - - ─
-     │                   │                   │               │
-     │      response     │                   │               │
-     │<──────────────────                    │               │
-  ┌──┴───┐          ┌────┴─────┐          ┌──┴──┐          ┌─┴──┐
-  │Client│          │Controller│          │Model│          │View│
-  └──────┘          └──────────┘          └─────┘          └────┘
-  ```
+![model-svg](https://www.plantuml.com/plantuml/svg/PP0z3i8m34Ptdo8N20TWG9NAoig2659gGQaRW-C8SNjCAfKgZFdyNlpJ90sYUIA0bWQCwlpEjHnLc0Z5RTqLrGi-CoOrvbSnxi0zaY6RGERFBultGKCN4bh5D7a3B8bVMO8fathkxdZHHQ_RdphcSGeofdFT_ZZWgoPAzlV9JSk2A_jBpFkMGHuSRJg01cDln_W0)
 ## How to use
 ### To set up the project
 Clone this repository and then run:
